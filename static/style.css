@@ -1,0 +1,23 @@
+body{
+    background: url('../Resources/Etihad_Stadium.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.box {
+    /* Absolute Position */
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #2db34a;
+    border: 2px solid black;
+  }
+  
+  /* Box rules: percentages define anchors (i.e. position of each box relative to enclosing box) */
+  
+  .box-1 {
+    top: 6%;
+    left: 2%;
+  }
+  

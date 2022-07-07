@@ -1,12 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Premier League 20-21</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
     
-</body>
+    <div class="container-fluid text-white">
+        <div class="jumbotron jumbotron-fluid text-center bg-secondary rounded">
+            <h1>Premier League Statistical Leaders 2020-2021</h1>
+            <p>Statistical comparisions for the 2020-2021 Premier League Season.</p>
+        </div>
+    </div>
+    <div class="container-fluid text-white bg-secondary rounded">
+        <div class="row">
+            <div class="col-12">
+                <p>This project is intended to visualize the Premier League for the 2020-2021 season. The first dropdown shows the top 10 players by different categories. From there, you can compare two players to see who had the better season. Finally, we have a map showing country of origin for all players that season.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid text-white bg-secondary">
+        <div class="row">
+            <div class="col-2 bg-secondary rounded">
+                <h3>Top 10 Players</h3>
+                <div id="topTen">Top ten tables</div>
+                <select id="selDataset">
+                    <option value="goals">Goals</option>
+                    <option value="assists">Assists</option>
+                    <option value="passes">Passes</option>
+                </select>
+            </div>
+            <div class="col-5 bg-secondary rounded">
+                <h3>Player Comparison</h3>
+                <div id="playerComp">Player 1 vs Player 2</div>
+                <select id="player1">
+                    <option value="playerA">John Smith</option>
+                    <option value="playerB">David Beckham</option>
+                    <option value="playerC">Angry Drunk</option>
+                </select>
+                <select id="player2">
+                    <option value="playerD">Tom Jackson</option>
+                    <option value="playerA">Wayne Rooney</option>
+                    <option value="playerA">Big Forehead</option>
+                </select>
+            </div>
+            <div class="col-5 bg-secondary rounded">
+                <h3>Player Home Countries</h3>
+                <div id="map">Map</div>
+                <figure class="box box1">This is a map, I promise</figure>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
 </html>
