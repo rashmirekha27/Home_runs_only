@@ -21,6 +21,12 @@ def index():
     cur.close()
     conn.close()
     return render_template('index.html', sampledata=sampledata)
+<<<<<<< HEAD
     
 if __name__ == "__main__":
     app.run(debug=True)
+=======
+
+if __name__ == "__main__":
+    app.run(debug=True)
+>>>>>>> 099fedb2f64cf4855b6df4d3c95bb8813fd81a8f
