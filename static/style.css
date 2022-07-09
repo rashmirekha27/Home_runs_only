@@ -8,8 +8,8 @@ body{
 .box {
     /* Absolute Position */
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 400px;
+    height: 300px;
     background: #2db34a;
     border: 2px solid black;
   }
