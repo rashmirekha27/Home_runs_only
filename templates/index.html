@@ -28,11 +28,12 @@
             <div class="col-2 bg-secondary rounded">
                 <h3>Top 10 Players</h3>
                 <div id="topTen">Top ten tables</div>
-                <select id="selDataset">
-                    <option value="goals">Goals</option>
-                    <option value="assists">Assists</option>
-                    <option value="passes">Passes</option>
+                <select id="selDataset" method = "GET" action = "/">
+                    {% for value in values%}
+                    <option value = "{{value}}" SELECTED> {{value}}</option>
+                    {% endfor %}
                 </select>
+                <div class="jumbotron"> {{ sampledata.goals }} </div>
             </div>
             <div class="col-5 bg-secondary rounded">
                 <h3>Player Comparison</h3>
@@ -52,6 +53,8 @@
                 <h3>Player Home Countries</h3>
                 <div id="map">Map</div>
                 <figure class="box box1">This is a map, I promise</figure>
+                <br>
+                {{ sampledata.map }}
             </div>
         </div>
     </div>
