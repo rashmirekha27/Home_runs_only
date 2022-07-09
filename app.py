@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
-                            database='Home_Runs_only',
-                            user=os.environ['DB_USERNAME'],
-                            password=os.environ['DB_PASSWORD'])
+                            database='Home_Runs_Only',
+                            user=os.environ['postgres'],
+                            password=os.environ['admin'])
     return conn
 
 
@@ -21,3 +21,6 @@ def index():
     cur.close()
     conn.close()
     return render_template('index.html', sampledata=sampledata)
+    
+if __name__ == "__main__":
+    app.run(debug=True)
