@@ -1,30 +1,23 @@
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
-import scrape_costa
+import os
+import psycopg2
+from flask import Flask, render_template
 
-# Create an instance of Flask
 app = Flask(__name__)
 
-# Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
+def get_db_connection():
+    conn = psycopg2.connect(host='localhost',
+                            database='Home_Runs_only',
+                            user=os.environ['DB_USERNAME'],
+                            password=os.environ['DB_PASSWORD'])
+    return conn
 
 
-# Route to render index.html template using data from Mongo
-@app.route("/")
-def home():
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route('/')
+def index():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM sample;')
+    sampledata = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('index.html', sampledata=sampledata)
