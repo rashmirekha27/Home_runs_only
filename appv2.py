@@ -81,8 +81,6 @@ def get_session():
     session = Session(engine)
     return session
 
-    
-
 
 db = get_database()
 session = get_session()
@@ -96,27 +94,20 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 
-Top10Assists = Base.classes.Top10Assists
+top10assists = Base.classes.top10assists
 
 app = Flask(__name__)
 
 @app.route("/")
 def To10AssistsHome():
 
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
-
-    """Return a JSON list of stations from the dataset."""  
-    
-    staton_list = session.query(Top10Assists.id, Top10Assists.name).all()
+    query = session.query(top10assists.id, top10assists.name, top10assists.assists).all()
 
     # Close our session
     session.close()
 
-    # Convert list of tuples into normal list
-    stations_json = list(np.ravel(staton_list))
-
-    return jsonify(stations_json)
+    top10 = list(np.ravel(query))
+    return jsonify(top10)
 
 
 # BOILERPLATE Syntax
