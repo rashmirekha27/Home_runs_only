@@ -83,7 +83,7 @@ def get_session():
     return session
 
 
-# db = get_database()
+db = get_database()
 # session = get_session()
 
 engine = get_database()
@@ -115,7 +115,8 @@ def To10AssistsHome():
 
     # top10 = list(np.ravel(query))
     df = pd.read_sql("select * from top10assists", con=engine.connect())
-
+    
+    #return df.to_json(orient ='records')
     return jsonify(df.to_dict())
     
 

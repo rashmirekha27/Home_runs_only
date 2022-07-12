@@ -1,3 +1,116 @@
+const rootUrl = "http://127.0.0.1:5000/";
+let top10AssistsPlayer;
+let top10PassesPlayer;
+let top10GoalsPlayer;
+
+//filter to get array index position on id
+function findPlayerId(playerDataIds, playerId) {
+  for(let x in playerDataIds) {
+    if(playerDataIds[x] == playerId) {
+      return x;
+    }
+  }
+}
+// function returns the json response from server
+function getTop10Assists() {
+  console.log("top 10 assists");
+  Plotly.d3.json(rootUrl, function(error, response) {
+    if(error) {
+      console.log('ERROR:: ' + error);
+    } else {
+      console.log("Response: " + response);
+      top10AssistsPlayer = response;
+      populatePlayerDropdown(top10AssistsPlayer);
+    }
+  });
+}
+
+function getTop10Passes() {
+  console.log("top 10 passes");
+  Plotly.d3.json(rootUrl+'/passes', function(error, response) {
+    if(error) {
+      console.log('ERROR:: ' + error);
+    } else {
+      console.log("Response: " + response);
+      top10PassesPlayer = response;
+      populatePlayerDropdown(top10PassesPlayer);
+    }
+  });
+}
+
+function getTop10Goals() {
+  console.log("top 10 passes");
+  Plotly.d3.json(rootUrl+'/goals', function(error, response) {
+    if(error) {
+      console.log('ERROR:: ' + error);
+    } else {
+      console.log("Response: " + response);
+      top10GoalsPlayer = response;
+      populatePlayerDropdown(top10GoalsPlayer);
+    }
+  });
+}
+
+//load  player1 and player2 drop down with player name as text and id as value
+function populatePlayerDropdown(playerData) {
+  //get the player1 dropdown id to populate with player name
+  let player1Dropdown = document.getElementById("player1");
+  player1Dropdown.innerHTML = ''; //clear the drop dpwn options
+  //get the player1 dropdown id to populate with player name
+  let player2Dropdown = document.getElementById("player2");
+  player2Dropdown.innerHTML = ''; //clear the drop dpwn options
+  let dropOption1;
+  let dropOption2;
+  console.log('PLayerdate ' + playerData.id);
+  //loop through jsaon response data
+  for(key in playerData.id) {
+    console.log(key + '::' + playerData.id[key] + ' :: ' + playerData.name[key]);
+    dropOption1 = document.createElement("option");
+    dropOption1.text = playerData.name[key];
+    dropOption1.value = playerData.id[key];
+    player1Dropdown.add(dropOption1);
+    dropOption2 = document.createElement("option");
+    dropOption2.text = playerData.name[key];
+    dropOption2.value = playerData.id[key];
+    player2Dropdown.add(dropOption2);
+  }
+}
+
+
+function optionChanged(optionSelected) {
+  if(optionSelected == 'Assists') {
+    getTop10Assists();
+  } else if(optionSelected == 'Passes') {
+    getTop10Passes();
+  } else if(optionSelected == 'Goals') {
+    getTop10Goals();
+  }
+}
+
+
+function onChangePlayer1(playerId) {
+  let x = findPlayerId(top10AssistsPlayer.id,playerId);
+  console.log(top10AssistsPlayer.name[x]);
+  // console.log(selectedRow.assists);
+}
+//initialization
+
+getTop10Assists();
+
+
+
+
+
+
+
+
+
+
+// Select the dropdown 
+
+
+
+/*
 var selectDrop = d3.select("#selDataset");
 
 
@@ -84,3 +197,4 @@ function init() {
 
 
 }
+*/
