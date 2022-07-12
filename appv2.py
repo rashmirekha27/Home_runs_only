@@ -83,7 +83,7 @@ def get_session():
     return session
 
 
-db = get_database()
+# db = get_database()
 # session = get_session()
 
 engine = get_database()

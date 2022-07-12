@@ -1,5 +1,3 @@
-
-// Select the dropdown 
 var selectDrop = d3.select("#selDataset");
 
 
