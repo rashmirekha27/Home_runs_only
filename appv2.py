@@ -7,6 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_utils import database_exists, create_database
 from local_settings import postgresql as settings
+from flask import render_template
 
 from flask import Flask, jsonify
 
@@ -83,31 +84,105 @@ def get_session():
 
 
 db = get_database()
-session = get_session()
+# session = get_session()
 
 engine = get_database()
 
-# Declare a Base using `automap_base()`
-Base = automap_base()
+# # Declare a Base using `automap_base()`
+# Base = automap_base()
 
-# Use the Base class to reflect the database tables
-Base.prepare(engine, reflect=True)
+# # Use the Base class to reflect the database tables
+# Base.prepare(engine, reflect=True)
 
 
-top10assists = Base.classes.top10assists
+# top10assists = Base.classes.top10assists
+# team_stats = Base.classes.team_stats
+# top10goals = Base.classes.top10goals
+# top10passes = Base.classes.top10passes
+# alldata = Base.classes.sample
 
 app = Flask(__name__)
 
 @app.route("/")
 def To10AssistsHome():
 
-    query = session.query(top10assists.id, top10assists.name, top10assists.assists).all()
+    # get_session()
+
+    # query = session.query(top10assists.id, top10assists.name, top10assists.assists).all()
+
+    # # Close our session
+    # session.close()
+
+    # top10 = list(np.ravel(query))
+    df = pd.read_sql("select * from top10assists", con=engine.connect())
+
+    return jsonify(df.to_dict())
+    
+
+
+@app.route("/team_stats")
+def teamstats():
+
+    # get_session()
+
+    # query = session.query(team_stats.id, team_stats.row_labels, team_stats.goals, team_stats.assists, team_stats.perc_passes_completed, team_stats.penalty_goals, team_stats.yellow_cards, team_stats.red_cards ).all()
 
     # Close our session
-    session.close()
+    # session.close()
 
-    top10 = list(np.ravel(query))
-    return jsonify(top10)
+    df = pd.read_sql("select * from team_stats", con=engine.connect())
+
+    return jsonify(df.to_dict()) 
+
+@app.route("/goals")
+def topgoals():
+
+    # get_session()
+
+    # query = session.query(top10goals.id, top10goals.name, top10goals.goals).all()
+
+    # # Close our session
+    # session.close()
+
+    df = pd.read_sql("select * from top10goals", con=engine.connect())
+
+    return jsonify(df.to_dict()) 
+
+
+@app.route("/passes")
+def toppasses():
+
+    # get_session()
+
+    # query = session.query(top10goals.id, top10goals.name, top10goals.goals).all()
+
+    # # Close our session
+    # session.close()
+
+    df = pd.read_sql("select * from top10passes", con=engine.connect())
+
+    return jsonify(df.to_dict()) 
+
+@app.route("/all_data")
+def all():
+
+    # get_session()
+
+    # query = session.query(top10goals.id, top10goals.name, top10goals.goals).all()
+
+    # # Close our session
+    # session.close()
+
+    df = pd.read_sql("select * from sample", con=engine.connect())
+
+    return jsonify(df.to_dict()) 
+
+
+@app.route("/test")
+def Test():
+
+ 
+    return render_template('index.html', sampledata='plow')
 
 
 # BOILERPLATE Syntax
