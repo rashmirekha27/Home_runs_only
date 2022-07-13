@@ -21,3 +21,10 @@ body{
     left: 2%;
   }
   
+  h3 {
+    color: white;
+    font-weight: bold;
+    background-color: teal;
+    border-color: teal;
+    font-size: 18px;
+  }

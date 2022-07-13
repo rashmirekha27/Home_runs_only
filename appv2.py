@@ -7,7 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_utils import database_exists, create_database
 from local_settings import postgresql as settings
-from flask import render_template
+from flask import render_template, redirect
 
 from flask import Flask, jsonify
 
@@ -103,8 +103,17 @@ engine = get_database()
 
 app = Flask(__name__)
 
+
 @app.route("/")
-def To10AssistsHome():
+def home():
+
+
+    # Return template and data
+    return render_template("index.html")
+
+
+@app.route("/Top10Assists")
+def Top10Assists():
 
     # get_session()
 
@@ -179,11 +188,11 @@ def all():
     return jsonify(df.to_dict()) 
 
 
-@app.route("/test")
-def Test():
+# @app.route("/test")
+# def Test():
 
  
-    return render_template('index.html', sampledata='plow')
+#     return render_template('index.html', sampledata='plow')
 
 
 # BOILERPLATE Syntax

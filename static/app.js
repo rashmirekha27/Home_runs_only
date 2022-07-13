@@ -14,13 +14,13 @@ function findPlayerId(playerDataIds, playerId) {
 // function returns the json response from server
 function getTop10Assists() {
   console.log("top 10 assists");
-  Plotly.d3.json(rootUrl, function(error, response) {
+  Plotly.d3.json(rootUrl+'/Top10Assists', function(error, response) {
     if(error) {
       console.log('ERROR:: ' + error);
     } else {
       console.log("Response: " + response);
       top10AssistsPlayer = response;
-      populatePlayerDropdown(top10AssistsPlayer);
+      top10assistsDropdown(top10AssistsPlayer);
     }
   });
 }
@@ -33,7 +33,7 @@ function getTop10Passes() {
     } else {
       console.log("Response: " + response);
       top10PassesPlayer = response;
-      populatePlayerDropdown(top10PassesPlayer);
+      top10passesDropdown(top10PassesPlayer);
     }
   });
 }
@@ -46,9 +46,51 @@ function getTop10Goals() {
     } else {
       console.log("Response: " + response);
       top10GoalsPlayer = response;
-      populatePlayerDropdown(top10GoalsPlayer);
+      top10goalsDropdown(top10GoalsPlayer);
     }
   });
+}
+
+
+//load  player1 and player2 drop down with player name as text and id as value
+function top10assistsDropdown(playerData) {
+  //get the player1 dropdown id to populate with player name
+  let playertable = document.getElementById("PlayerInfoTable");
+  playertable.innerHTML = ''; //clear the drop down options
+  playertable.innerHTML += '<tr> <th>Name</th> <th>Assists</th> </tr>';
+  //loop through jsaon response data
+  for(key in playerData.id) {
+    playertable.innerHTML += '<tr> <td>'+playerData.name[key]+'</td> <td>'+playerData.assists[key]+'</td> </tr>';
+    // console.log(key + '::' + playerData.name[key] + ' :: ' + playerData.assists[key]);
+    
+  }
+}
+
+
+function top10passesDropdown(playerData) {
+  //get the player1 dropdown id to populate with player name
+  let playertable = document.getElementById("PlayerInfoTable");
+  playertable.innerHTML = ''; //clear the drop down options
+  playertable.innerHTML += '<tr> <th>Name</th> <th>Passes</th> </tr>';
+  //loop through jsaon response data
+  for(key in playerData.id) {
+    playertable.innerHTML += '<tr> <td>'+playerData.name[key]+'</td> <td>'+playerData.passes_attempted[key]+'</td> </tr>';
+    
+    
+  }
+}
+
+function top10goalsDropdown(playerData) {
+  //get the player1 dropdown id to populate with player name
+  let playertable = document.getElementById("PlayerInfoTable");
+  playertable.innerHTML = ''; //clear the drop down options
+  playertable.innerHTML += '<tr> <th>Name</th> <th>Goals</th> </tr>';
+  //loop through jsaon response data
+  for(key in playerData.id) {
+    playertable.innerHTML += '<tr> <td>'+playerData.name[key]+'</td> <td>'+playerData.goals[key]+'</td> </tr>';
+    
+    
+  }
 }
 
 //load  player1 and player2 drop down with player name as text and id as value
@@ -61,7 +103,7 @@ function populatePlayerDropdown(playerData) {
   player2Dropdown.innerHTML = ''; //clear the drop dpwn options
   let dropOption1;
   let dropOption2;
-  console.log('PLayerdate ' + playerData.id);
+  console.log('Playerdate ' + playerData.id);
   //loop through jsaon response data
   for(key in playerData.id) {
     console.log(key + '::' + playerData.id[key] + ' :: ' + playerData.name[key]);
