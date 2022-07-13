@@ -225,7 +225,9 @@ function plotComparison() {
 
   var layout = {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
-      showlegend: true
+      showlegend: true,
+      height: 200,
+      width: 200
   };
 
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
