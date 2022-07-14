@@ -1,4 +1,4 @@
-,Name,Club,Nationality,Position,Age,Matches,Starts,Mins,Goals,Assists,Passes_Attempted,Perc_Passes_Completed,Penalty_Goals,Penalty_Attempted,Yellow_Cards,Red_Cards,lat,long
+id,Name,Club,Nationality,Position,Age,Matches,Starts,Mins,Goals,Assists,Passes_Attempted,Perc_Passes_Completed,Penalty_Goals,Penalty_Attempted,Yellow_Cards,Red_Cards,lat,long
 0,Mason Mount,Chelsea,ENG,"MF,FW",21,36,32,2890,6,5,1881,82.3,1,1,2,0,51.509865,-0.1181
 1,Edouard Mendy,Chelsea,SEN,GK,28,31,31,2745,0,0,1007,84.6,0,0,2,0,14.5001717,-14.4392276
 2,Timo Werner,Chelsea,GER,FW,24,35,29,2602,6,8,826,77.2,0,0,2,0,51.1642292,10.4541194
@@ -93,7 +93,7 @@
 91,Curtis Jones,Liverpool FC,ENG,MF,19,24,13,1179,1,2,976,91.2,0,0,2,0,51.509865,-0.1181
 92,Diogo Jota,Liverpool FC,POR,FW,23,19,12,1112,9,0,451,72.5,0,0,2,0,39.557191,-7.8536599
 93,James Milner,Liverpool FC,ENG,"MF,DF",34,26,11,1070,0,1,913,84.9,0,0,3,0,51.509865,-0.1181
-94,Ozan Kabak,Liverpool FC,TUR,DF,20,9,9,801,0,0,554,90.6,0,0,3,0,38.9573415 35.240741,
+94,Ozan Kabak,Liverpool FC,TUR,DF,20,9,9,801,0,0,554,90.6,0,0,3,0,38.9573415,35.240741
 95,Joël Matip,Liverpool FC,CMR,DF,28,10,9,691,1,2,527,88.4,0,0,2,0,7.3696495,12.3445856
 96,Rhys Williams,Liverpool FC,ENG,DF,19,9,7,661,0,0,451,92,0,0,0,0,51.509865,-0.1181
 97,Naby Keïta,Liverpool FC,GUI,MF,25,10,7,520,0,0,356,87.4,0,0,1,0,9.9327629,-11.3580296
@@ -117,7 +117,7 @@
 115,James Maddison,Leicester City,ENG,"MF,FW",23,31,24,2099,8,5,1116,77.3,0,0,4,0,51.509865,-0.1181
 116,James Justin,Leicester City,ENG,DF,22,23,23,2070,2,1,1248,79.2,0,0,4,0,51.509865,-0.1181
 117,Harvey Barnes,Leicester City,ENG,"FW,MF",22,25,22,1945,9,4,626,74.8,0,0,0,0,51.509865,-0.1181
-118,Çağlar Söyüncü,Leicester City,TUR,DF,24,23,19,1819,1,0,1351,89,0,0,2,0,38.9573415 35.240741,
+118,Çağlar Söyüncü,Leicester City,TUR,DF,24,23,19,1819,1,0,1351,89,0,0,2,0,38.9573415,35.240741
 119,Marc Albrighton,Leicester City,ENG,"DF,FW",30,31,17,1746,1,5,923,68.8,0,0,2,0,51.509865,-0.1181
 120,Kelechi Iheanacho,Leicester City,NGA,FW,23,25,16,1459,12,2,501,79.8,0,1,1,0,9.077751,8.6774567
 121,Nampalys Mendy,Leicester City,SEN,MF,28,23,15,1459,0,1,965,91.4,0,0,5,0,14.5001717,-14.4392276
@@ -128,12 +128,12 @@
 126,Daniel Amartey,Leicester City,GHA,DF,25,12,8,722,1,0,466,85.8,0,0,3,0,7.9527706,-1.0307118
 127,Christian Fuchs,Leicester City,AUT,DF,34,9,8,702,0,0,589,81.2,0,0,4,0,47.6964719,13.3457347
 128,Hamza Choudhury,Leicester City,ENG,MF,22,10,4,316,0,0,235,80.9,0,0,1,0,51.509865,-0.1181
-129,Cengiz Ünder,Leicester City,TUR,"MF,FW",23,9,1,281,0,2,129,70.5,0,0,0,0,38.9573415 35.240741,
+129,Cengiz Ünder,Leicester City,TUR,"MF,FW",23,9,1,281,0,2,129,70.5,0,0,0,0,38.9573415,35.240741
 130,Sidnei Tavares,Leicester City,POR,MF,18,2,1,85,0,0,26,73.1,0,0,0,0,39.557191,-7.8536599
 131,Islam Slimani,Leicester City,ALG,FW,32,1,0,20,0,0,11,72.7,0,0,0,0,28.0289837,1.6666663
 132,Demarai Gray,Leicester City,ENG,FW,24,1,0,19,0,0,11,63.6,0,0,0,0,51.509865,-0.1181
 133,Wes Morgan,Leicester City,JAM,DF,36,3,0,18,0,0,5,100,0,0,0,0,18.1155174,-77.2760026
-134,Khanya Leshabela,Leicester City,RSA,MF,20,1,0,10,0,0,9,77.8,0,0,0,0,44.2107675 20.9224158,
+134,Khanya Leshabela,Leicester City,RSA,MF,20,1,0,10,0,0,9,77.8,0,0,0,0,44.2107675,20.9224158
 135,Tomáš Souček,West Ham United,CZE,MF,25,38,38,3419,10,1,1539,76.9,0,0,7,1,49.8037633,15.4749126
 136,Aaron Cresswell,West Ham United,ENG,DF,30,36,36,3170,0,8,2060,74.8,0,0,3,0,51.509865,-0.1181
 137,Łukasz Fabiański,West Ham United,POL,GK,35,35,35,3150,0,0,1002,60.5,0,0,2,0,51.9189046,19.1343786
@@ -257,7 +257,7 @@
 255,Niels Nkounkou,Everton,FRA,"DF,FW",19,2,1,81,0,0,34,79.4,0,0,1,0,46.71109,1.7191036
 256,Jonjoe Kenny,Everton,ENG,DF,23,4,1,79,0,0,61,77,0,0,0,0,51.509865,-0.1181
 257,Joshua King,Everton,NOR,"MF,FW",28,11,0,148,0,0,48,70.8,0,0,0,0,64.5783089,17.888237
-258,Cenk Tosun,Everton,TUR,FW,29,5,0,48,0,0,10,80,0,0,1,0,38.9573415 35.240741,
+258,Cenk Tosun,Everton,TUR,FW,29,5,0,48,0,0,10,80,0,0,1,0,38.9573415,35.240741
 259,João Virgínia,Everton,POR,GK,20,1,0,48,0,0,17,52.9,0,0,0,0,39.557191,-7.8536599
 260,Moise Kean,Everton,ITA,FW,20,2,0,15,0,0,9,77.8,0,0,0,0,41.29246,12.5736108
 261,Theo Walcott,Everton,ENG,FW,31,1,0,13,0,0,1,100,0,0,0,0,51.509865,-0.1181
@@ -416,7 +416,7 @@
 414,Alireza Jahanbakhsh,Brighton,IRN,"FW,MF",26,21,6,528,0,1,265,74,0,0,3,0,32.4207423,53.6830157
 415,Davy Pröpper,Brighton,NED,MF,28,7,2,213,0,0,96,76,0,0,0,0,17.5968801,8.0828506
 416,Bernardo,Brighton,BRA,"DF,MF",25,3,2,206,0,0,87,71.3,0,0,0,0,-14.2400732,-53.1805017
-417,Percy Tau,Brighton,RSA,"FW,MF",26,3,1,103,0,1,29,75.9,0,0,0,0,44.2107675 20.9224158,
+417,Percy Tau,Brighton,RSA,"FW,MF",26,3,1,103,0,1,29,75.9,0,0,0,0,44.2107675,20.9224158
 418,Andi Zeqiri,Brighton,SUI,"FW,DF",21,9,0,171,0,0,43,46.5,0,0,0,0,15.7860696,30.1995791
 419,José Izquierdo,Brighton,COL,"DF,MF",28,1,0,9,0,0,9,88.9,0,0,0,0,4.1156735,-72.9301367
 420,Reda Khadra,Brighton,GER,FW,19,1,0,5,0,0,1,0,0,0,0,0,51.1642292,10.4541194
@@ -485,7 +485,7 @@
 483,Matt Phillips,West Bromwich Albion,SCO,MF,29,33,20,1828,2,1,567,69.3,0,0,1,0,-4.6838871,55.4494781
 484,Callum Robinson,West Bromwich Albion,IRL,"FW,MF",25,28,20,1560,5,0,450,70.9,0,0,0,0,53.428665,-8.3320801
 485,Romaine Sawyers,West Bromwich Albion,SKN,MF,28,19,17,1487,0,0,712,85,0,0,2,0,48.6737532,19.696058
-486,Okay Yokuşlu,West Bromwich Albion,TUR,MF,26,16,15,1317,0,1,530,83.2,0,0,4,0,38.9573415 35.240741,
+486,Okay Yokuşlu,West Bromwich Albion,TUR,MF,26,16,15,1317,0,1,530,83.2,0,0,4,0,38.9573415,35.240741
 487,Jake Livermore,West Bromwich Albion,ENG,MF,30,18,15,1242,0,0,381,74.3,0,0,2,1,51.509865,-0.1181
 488,Grady Diangana,West Bromwich Albion,ENG,"MF,FW",22,20,15,1235,1,0,351,72.9,0,0,0,0,51.509865,-0.1181
 489,Ainsley Maitland-Niles,West Bromwich Albion,ENG,MF,22,15,14,1230,0,0,402,76.4,0,0,2,0,51.509865,-0.1181
