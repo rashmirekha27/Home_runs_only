@@ -1,21 +1,21 @@
-Club,Goals
-Arsenal,53
-Aston Villa,52
-Brighton,39
-Burnley,32
-Chelsea,56
-Crystal Palace,39
-Everton,45
-Fulham,26
-Leeds United,60
-Leicester City,64
-Liverpool FC,65
-Manchester City,82
-Manchester United,70
-Newcastle United,44
-Sheffield United,19
-Southampton,47
-Tottenham Hotspur,66
-West Bromwich Albion,33
-West Ham United,60
-Wolverhampton Wanderers,34
+id,Club,Goals
+1,Arsenal,53
+2,Aston Villa,52
+3,Brighton,39
+4,Burnley,32
+5,Chelsea,56
+6,Crystal Palace,39
+7,Everton,45
+8,Fulham,26
+9,Leeds United,60
+10,Leicester City,64
+11,Liverpool FC,65
+12,Manchester City,82
+13,Manchester United,70
+14,Newcastle United,44
+15,Sheffield United,19
+16,Southampton,47
+17,Tottenham Hotspur,66
+18,West Bromwich Albion,33
+19,West Ham United,60
+20,Wolverhampton Wanderers,34
