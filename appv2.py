@@ -188,11 +188,11 @@ def all():
     return jsonify(df.to_dict()) 
 
 
-# @app.route("/test")
-# def Test():
+@app.route("/test")
+def Test():
 
  
-#     return render_template('index.html', sampledata='plow')
+    return render_template('map.html')
 
 
 # BOILERPLATE Syntax

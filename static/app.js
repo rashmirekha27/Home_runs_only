@@ -98,7 +98,8 @@ function drawCountryMap(latitude, longitude, countryCode) {
   //code to draw map
   // Creating the map object
   var myMap = L.map("map", {
-    center: [arraylat[0], arraylong[0]],
+    center: [50, 76],
+    // center: [arraylat[0], arraylong[0]],
     zoom: 11
   });
 
@@ -108,7 +109,7 @@ function drawCountryMap(latitude, longitude, countryCode) {
   }).addTo(myMap);
 
   // Create a new marker cluster group.
-  var markers = L.markerClusterGroup();
+  var markers = new L.markerClusterGroup();
 
   // Loop through the data.
   for (var i = 0; i < arraylat.length; i++) {

@@ -7,6 +7,16 @@
     <title>Premier League 20-21</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/style.css">
+            <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!-- Marker cluster JavaScript code -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+    <!-- Marker cluster CSS -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
 </head>
 
 <body>
@@ -27,7 +37,7 @@
     <br>
     <div class="container-fluid text-white bg-secondary">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well">
                     <h5>Top 10 PLayers</h5>
                     <select id="selDataset" onchange="optionChanged(this.value)">
@@ -49,14 +59,14 @@
                 </div>
                 </div>
             </div>
-            <div class="col-md-5 bg-secondary rounded">
+            <div class="col-md-3 bg-secondary rounded">
                 <h3>Player Comparison</h3>
                 <div id="playerComp">Player 1 vs Player 2</div>
                 <select id="player1" onchange="plotComparison()"></select>
                 <select id="player2" onchange="plotComparison()"></select>
                 <div id="comparison"></div>
             </div>
-            <div class="col-md-5 bg-secondary rounded">
+            <div class="col-md- 4 bg-secondary rounded">
                 <h3>Player Home Countries</h3>
                 <div id="map"></div>
                 <!--<figure class="box box1">This is a map, I promise</figure>-->
@@ -80,9 +90,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="../static/app.js"></script>
-    <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-  crossorigin=""></script>
+
+
 </body>
 </html>
