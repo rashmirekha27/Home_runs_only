@@ -1,5 +1,5 @@
 -- Create tables for raw data to be loaded into database
-
+Drop table sample;
 CREATE TABLE sample (
 id INT PRIMARY KEY,
 Name TEXT,
@@ -17,8 +17,9 @@ Perc_Passes_Completed NUMERIC,
 Penalty_Goals Integer,
 Penalty_Attempted Integer,
 Yellow_Cards Integer,
-Red_Cards Integer
-coordinates Integer
+Red_Cards Integer,
+lat decimal (10, 7),
+long decimal (10, 7)
 );
 select * from sample;
 

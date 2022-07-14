@@ -268,37 +268,15 @@ function plotComparison() {
 
   var layout = {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
-      showlegend: true
+      showlegend: true,
+      width: 250,
+      height: 250
+
   };
 
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
 
 }
-// map:
-
-var map = L.map('map').setView([39.74739, -105], 5);
-
-var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-Plotly.d3.json(earthquakeUrl, function(error, response) {
-  // console.log(error);
-  L.geoJSON(response, {
-      pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-              radius: feature.properties.mag*8,
-              fillColor: getColor(feature.geometry.coordinates[2]),
-              color:'#ff7800',
-              weight: 1,
-              opacity: 1,
-              fillOpacity: 0.8
-          });
-      },
-      onEachFeature: onEachFeature
-  }).addTo(map);
-});
 
 //initialization code
 getTop10Assists();
