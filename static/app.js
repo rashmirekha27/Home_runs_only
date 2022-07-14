@@ -268,13 +268,19 @@ function plotComparison() {
 
   var layout = {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
-      showlegend: true
+      showlegend: true,
+      width: 250,
+      height: 250
+
   };
 
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b675f29323a8853177033e04e7bc89c036e4c344
 
 //initialization code
 getTop10Assists();
