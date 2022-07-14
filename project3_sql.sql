@@ -18,6 +18,7 @@ Penalty_Goals Integer,
 Penalty_Attempted Integer,
 Yellow_Cards Integer,
 Red_Cards Integer
+coordinates Integer
 );
 select * from sample;
 
