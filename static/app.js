@@ -74,10 +74,53 @@ function getall_data() {
       //top10assistsDropdown(top10AssistsPlayer);
       // plotBarChart(all_dataPlayer.assists,top10AssistsPlayer.name);
       //populate payer1 and player2 dropdown
+      drawCountryMap(all_data.lat, all_data.long, all_data.nationality);
       populatePlayerDropdown(all_data);
     }
   });
 }
+
+//code to draw map
+function drawCountryMap(latitude, longitude, countryCode) {
+  //prepare the data for the map -- starts
+  //convert the values to array from json object
+  let arraylat = []; //array for latitude
+  let arraylong = []; //array for longtitude
+  let arrayNationality = []; //array for nationality
+
+  for(key in latitude) {
+    arraylat.push(latitude[key]);
+    arraylong.push(longitude[key]);
+    arrayNationality.push(countryCode[key]);
+  }
+  //prepare the data for the map -- ends
+  
+  //code to draw map
+  // Creating the map object
+  var myMap = L.map("map", {
+    center: [arraylat[0], arraylong[0]],
+    zoom: 11
+  });
+
+  // Adding the tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(myMap);
+
+  // Create a new marker cluster group.
+  var markers = L.markerClusterGroup();
+
+  // Loop through the data.
+  for (var i = 0; i < arraylat.length; i++) {
+      // Add a new marker to the cluster group, and bind a popup.
+      markers.addLayer(L.marker([arraylat[i], arraylong[i]])
+        .bindPopup(arrayNationality[i]));
+  }
+
+  // Add our marker cluster layer to the map.
+  myMap.addLayer(markers);
+}
+
 
 //load  player1 and player2 drop down with player name as text and id as value
 function top10assistsDropdown(playerData) {
@@ -195,7 +238,7 @@ function plotComparison() {
   let player2Index = findPlayerId(all_data.id,player2Id); //get the array index position of the player 2
 
   console.log('Player 1: ' + all_data.name[player1Index] + ' Assists: ' + all_data.assists[player1Index] + ' Passes: ' + all_data.passes_attempted[player1Index] + ' Goals: ' + all_data.goals[player1Index]);
-  console.log('Player 1: ' + all_data.name[player2Index] + ' Assists: ' + all_data.assists[player2Index] + ' Passes: ' + all_data.passes_attempted[player2Index] + ' Goals: ' + all_data.goals[player2Index]);
+  console.log('Player 2: ' + all_data.name[player2Index] + ' Assists: ' + all_data.assists[player2Index] + ' Passes: ' + all_data.passes_attempted[player2Index] + ' Goals: ' + all_data.goals[player2Index]);
 
   //prepare data for assists
   var traceAssists = {
@@ -225,13 +268,37 @@ function plotComparison() {
 
   var layout = {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
-      showlegend: true,
-      height: 200,
-      width: 200
+      showlegend: true
   };
 
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
+
 }
+// map:
+
+var map = L.map('map').setView([39.74739, -105], 5);
+
+var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+Plotly.d3.json(earthquakeUrl, function(error, response) {
+  // console.log(error);
+  L.geoJSON(response, {
+      pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {
+              radius: feature.properties.mag*8,
+              fillColor: getColor(feature.geometry.coordinates[2]),
+              color:'#ff7800',
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.8
+          });
+      },
+      onEachFeature: onEachFeature
+  }).addTo(map);
+});
 
 //initialization code
 getTop10Assists();
