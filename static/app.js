@@ -277,7 +277,7 @@ function plotBubbleChart(cgoals){
     // Use Plotly to plot the data with the layout.
     // the bubblechartTrace needs to be placed in an array
     Plotly.newPlot("bubble", [bubblechartTrace], bubbleLayout);
-
+    
 }
 
 //initialization code
