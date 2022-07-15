@@ -98,8 +98,8 @@ function drawCountryMap(latitude, longitude, countryCode) {
   //code to draw map
   // Creating the map object
   var myMap = L.map("map", {
-    center: [50, 76],
-    // center: [arraylat[0], arraylong[0]],
+    //center: [50, 76],
+     center: [arraylat[0], arraylong[0]],
     zoom: 11
   });
 
@@ -278,11 +278,12 @@ function plotComparison() {
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
 
 }
+/*
 <<<<<<< HEAD
 
 =======
 >>>>>>> b675f29323a8853177033e04e7bc89c036e4c344
-
+*/
 //initialization code
 getTop10Assists();
 getall_data();
