@@ -4,6 +4,7 @@ let top10AssistsPlayer; //store top 10 assists data
 let top10PassesPlayer; //store top 10 passes data
 let top10GoalsPlayer; //store top 10 goals data
 let all_data; //store all player data
+let clubgoals; //store club goals data
 
 //filter to get array index position on id
 function findPlayerId(playerDataIds, playerId) {
@@ -74,27 +75,28 @@ function getall_data() {
       //top10assistsDropdown(top10AssistsPlayer);
       // plotBarChart(all_dataPlayer.assists,top10AssistsPlayer.name);
       //populate payer1 and player2 dropdown
-      drawCountryMap(all_data.lat, all_data.long, all_data.nationality);
+      // drawCountryMap(all_data.lat, all_data.long, all_data.nationality);
       populatePlayerDropdown(all_data);
     }
   });
 }
 
 //code to draw map
-function drawCountryMap(latitude, longitude, countryCode) {
-  //prepare the data for the map -- starts
-  //convert the values to array from json object
-  let arraylat = []; //array for latitude
-  let arraylong = []; //array for longtitude
-  let arrayNationality = []; //array for nationality
+// function drawCountryMap(latitude, longitude, countryCode) {
+//   //prepare the data for the map -- starts
+//   //convert the values to array from json object
+//   let arraylat = []; //array for latitude
+//   let arraylong = []; //array for longtitude
+//   let arrayNationality = []; //array for nationality
 
-  for(key in latitude) {
-    arraylat.push(latitude[key]);
-    arraylong.push(longitude[key]);
-    arrayNationality.push(countryCode[key]);
-  }
-  //prepare the data for the map -- ends
+//   for(key in latitude) {
+//     arraylat.push(latitude[key]);
+//     arraylong.push(longitude[key]);
+//     arrayNationality.push(countryCode[key]);
+//   }
+//   //prepare the data for the map -- ends
   
+<<<<<<< HEAD
   //code to draw map
   // Creating the map object
   var myMap = L.map("map", {
@@ -102,25 +104,34 @@ function drawCountryMap(latitude, longitude, countryCode) {
      center: [arraylat[0], arraylong[0]],
     zoom: 11
   });
+=======
+//   //code to draw map
+//   // Creating the map object
+//   var myMap = L.map("map", {
+//     center: [50, 76],
+//     // center: [arraylat[0], arraylong[0]],
+//     zoom: 11
+//   });
+>>>>>>> 437bc2b2191c14ba65179550f528ea80d9734cfa
 
-  // Adding the tile layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(myMap);
+//   // Adding the tile layer
+//   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//   }).addTo(myMap);
 
-  // Create a new marker cluster group.
-  var markers = new L.markerClusterGroup();
+//   // Create a new marker cluster group.
+//   var markers = new L.markerClusterGroup();
 
-  // Loop through the data.
-  for (var i = 0; i < arraylat.length; i++) {
-      // Add a new marker to the cluster group, and bind a popup.
-      markers.addLayer(L.marker([arraylat[i], arraylong[i]])
-        .bindPopup(arrayNationality[i]));
-  }
+//   // Loop through the data.
+//   for (var i = 0; i < arraylat.length; i++) {
+//       // Add a new marker to the cluster group, and bind a popup.
+//       markers.addLayer(L.marker([arraylat[i], arraylong[i]])
+//         .bindPopup(arrayNationality[i]));
+//   }
 
-  // Add our marker cluster layer to the map.
-  myMap.addLayer(markers);
-}
+//   // Add our marker cluster layer to the map.
+//   myMap.addLayer(markers);
+// }
 
 
 //load  player1 and player2 drop down with player name as text and id as value
@@ -181,6 +192,7 @@ function populatePlayerDropdown(playerData) {
     dropOption2.value = playerData.id[key];
     player2Dropdown.add(dropOption2);
   }
+  plotComparison(dropOption1, dropOption2);
 }
 
 function optionChanged(optionSelected) {
@@ -270,23 +282,75 @@ function plotComparison() {
   var layout = {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
       showlegend: true,
-      width: 250,
-      height: 250
+      width: 500,
+      height: 480
 
   };
 
   Plotly.newPlot('comparison', data, layout, {displayModeBar: false, responsive: true});
 
 }
+<<<<<<< HEAD
 /*
 <<<<<<< HEAD
 
 =======
 >>>>>>> b675f29323a8853177033e04e7bc89c036e4c344
 */
+=======
+
+// function returns the json response from server for to 10 assist
+function ClubGoals() {
+  console.log("club goals for season");
+  Plotly.d3.json(rootUrl+'clubgoals', function(error, response) {
+    if(error) {
+      console.log('ERROR:: ' + error);
+    } else {
+      console.log("Response: " + response);
+      clubgoals = response;
+      //Create a bubble chart for the club goals
+      plotBubbleChart(clubgoals);
+    }
+  });
+}
+function plotBubbleChart(cgoals){
+  // Create trace information for the bubble chart.
+  let arrayClubname = [];
+  let arrayGoals = [];
+  for(key in cgoals.club) {
+    arrayClubname.push(cgoals.club[key]);
+    arrayGoals.push(cgoals.totalgoals[key]);
+  }
+  var bubblechartTrace = {
+    x: arrayClubname,
+    y: arrayGoals,
+    text: arrayClubname,
+    mode: 'markers',
+    marker: {
+      size: arrayGoals,
+      color: 'green'
+    }
+    };
+  
+    // Create the layout for the bubble chart.
+    var bubbleLayout = {
+    title: "Club Season Goals",
+    xaxis: {title: "Clubs"},
+    showlegend: false
+    };
+  
+    // Use Plotly to plot the data with the layout.
+    // the bubblechartTrace needs to be placed in an array
+    Plotly.newPlot("bubble", [bubblechartTrace], bubbleLayout);
+
+}
+
+
+>>>>>>> 437bc2b2191c14ba65179550f528ea80d9734cfa
 //initialization code
 getTop10Assists();
 getall_data();
+ClubGoals();
 
 
 

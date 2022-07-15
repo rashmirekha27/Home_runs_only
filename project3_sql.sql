@@ -58,3 +58,9 @@ id INT PRIMARY KEY,
 Name TEXT,
 Passes_Attempted Integer);
 select * from Top10passes;
+
+CREATE TABLE ClubGoals (
+id INT PRIMARY KEY,
+Club TEXT,
+Goals Integer);
+select * from ClubGoals;

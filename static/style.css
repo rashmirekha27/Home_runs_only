@@ -14,14 +14,7 @@ body{
     border: 2px solid black;
   }
   
-.box-gray {
-    /* Absolute Position */
-    position: absolute;
-    width: 400px;
-    height: 300px;
-    background: #504747;
-    border: 2px solid black;
-  }
+
 
   /* Box rules: percentages define anchors (i.e. position of each box relative to enclosing box) */
   
