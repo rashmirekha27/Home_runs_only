@@ -273,7 +273,7 @@ function plotComparison() {
       title: all_data.name[player1Index] + ' vs ' + all_data.name[player2Index],
       showlegend: true,
       width: 500,
-      height: 500
+      height: 480
 
   };
 
@@ -284,7 +284,7 @@ function plotComparison() {
 // function returns the json response from server for to 10 assist
 function ClubGoals() {
   console.log("club goals for season");
-  Plotly.d3.json(rootUrl+'/clubgoals', function(error, response) {
+  Plotly.d3.json(rootUrl+'clubgoals', function(error, response) {
     if(error) {
       console.log('ERROR:: ' + error);
     } else {
@@ -310,7 +310,7 @@ function plotBubbleChart(cgoals){
     mode: 'markers',
     marker: {
       size: arrayGoals,
-      color: green
+      color: 'green'
     }
     };
   
