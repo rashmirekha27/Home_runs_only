@@ -264,6 +264,8 @@ function plotBubbleChart(cgoals){
     marker: {
       size: arrayGoals,
       color: 'green'
+      // width: 500,
+      // height: 500
     }
     };
   
