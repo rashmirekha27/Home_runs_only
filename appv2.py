@@ -188,11 +188,14 @@ def all():
     return jsonify(df.to_dict()) 
 
 
-@app.route("/test")
-def Test():
+@app.route("/clubgoals")
+def clubgoals():
 
- 
-    return render_template('map.html')
+    df = pd.read_sql("Select club, sum(goals) as TotalGoals from sample group by club order by sum(goals)", con=engine.connect())
+
+    return jsonify(df.to_dict()) 
+
+
 
 
 # BOILERPLATE Syntax

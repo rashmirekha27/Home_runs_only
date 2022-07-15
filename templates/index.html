@@ -37,7 +37,7 @@
     <br>
     <div class="container-fluid text-white bg-secondary">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="well">
                     <h5>Top 10 PLayers</h5>
                     <select id="selDataset" onchange="optionChanged(this.value)">
@@ -48,41 +48,25 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Player Metadata</h3>
+                        <!-- <h3 class="panel-title">Player Metadata</h3> -->
                     
                     <div id="bar" class="panel-body">
-                        <!--<div id="bar"></div>-->
-                        <!--<table id="PlayerInfoTable"> 
-
-                        </table>-->
+                        
                     </div>
                 </div>
                 </div>
             </div>
-            <div class="col-md-3 bg-secondary rounded">
-                <h3>Player Comparison</h3>
+            <div class="col-md-6 bg-secondary rounded">
+                <h5>Player Comparison</h5>
                 <div id="playerComp">Player 1 vs Player 2</div>
                 <select id="player1" onchange="plotComparison()"></select>
                 <select id="player2" onchange="plotComparison()"></select>
                 <div id="comparison"></div>
             </div>
-            <div class="col-md- 4 bg-secondary rounded">
-                <h3>Player Home Countries</h3>
-                <div id="map"></div>
-                <!--<figure class="box box1">This is a map, I promise</figure>-->
-                <!--<br>-->
-            </div>
         </div>
-        <br>
         <div class="row">
-            <div class="col-md-2">
-                <div id="bar1"></div>
-            </div>
-            <div class="col-md-5">
-                <div id="comparison1"></div>
-            </div>
-            <div class="col-md-5">
-                <div id="country"></div>
+            <div class="col-md-12">
+                <div id="bubble"></div>
             </div>
         </div>
     </div>
